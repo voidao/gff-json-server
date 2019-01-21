@@ -19,7 +19,15 @@ const db = router.db
 const middlewares = jsonServer.defaults()
 const port = Number(process.env.PORT || 3000)
 
-var huntingObj
+var huntingObj;
+var fs = require('fs'),
+    http = require('http'),
+    https = require('https');
+
+var options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/service.edening.net/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/service.edening.net/fullchain.pem'),
+};
 
 server.use(middlewares)
 server.use(bodyParser.json())
@@ -54,6 +62,10 @@ server.use((req, res, next) => { // custom authorization here
   }
 })
 server.use(router);
-server.listen(port, () => {
+/*server.listen(port, () => {
         console.log('JSON Server is running')
-})
+})*/
+
+https.createServer(options, server).listen(port, function(){
+  console.log("JSON Server listening on port: " + port);
+});
