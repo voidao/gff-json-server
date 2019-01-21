@@ -14,7 +14,7 @@ const bodyParser = require('body-parser')
 
 const jsonServer = require('json-server')
 const server = jsonServer.create()
-const router = jsonServer.router('db.json')
+const router = jsonServer.router('/var/local/db.json')
 const db = router.db
 const middlewares = jsonServer.defaults()
 const port = Number(process.env.PORT || 3000)
