@@ -64,13 +64,19 @@ server.use((req, res, next) => { // custom authorization here
             db.get('huntings')
                 .find({ id: req.body.like })
                 .assign({likes: {number: huntingObj.get('likes.number') + 1}})
-                .write();
+                .write().then(hunting => {
+                    res.status(200).json({
+                        id: hunting.get('id'),
+                        category: hunting.get('category'),
+                        likes: {number: hunting.get('likes.number')}
+                    });
+                });
 
-            res.status(200).json({
+            /*res.status(200).json({
                 id: huntingObj.get('id'),
                 category: huntingObj.get('category'),
                 likes: {number: huntingObj.get('likes.number')}
-            });
+            });*/
         } else {
             res.sendStatus(400)
         }
