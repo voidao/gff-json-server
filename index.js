@@ -12,11 +12,24 @@ server.listen(port, function () {
 //const basicAuth = require('express-basic-auth')
 const bodyParser = require('body-parser')
 
-const jsonServer = require('json-server')
-const server = jsonServer.create()
+const jsonServer = require('json-server');
+/*const server = jsonServer.create()
 const router = jsonServer.router('/var/local/db.json')
 const db = router.db
-const middlewares = jsonServer.defaults()
+const middlewares = jsonServer.defaults()*/
+/*const express = require('express');
+const server = express().set('json spaces', 2);*/
+const filePath = "/var/local/db.json";
+//const filePath = "/usr/local/data/db.json";
+const low = require('lowdb');
+const FileAsync = require('lowdb/adapters/FileAsync');
+const adapter = new FileAsync(filePath);
+const server = jsonServer.create();
+router = jsonServer.router(filePath);
+router.db = low(adapter);
+const db = router.db;
+const middlewares = jsonServer.defaults();
+
 const port = Number(process.env.PORT || 3000)
 
 var huntingObj;
