@@ -26,8 +26,7 @@ const FileAsync = require('lowdb/adapters/FileAsync');
 const adapter = new FileAsync(filePath);
 const server = jsonServer.create();
 router = jsonServer.router(filePath);
-router.db = low(adapter);
-const db = router.db;
+const dbAsync = low(adapter);
 const middlewares = jsonServer.defaults();
 
 const port = Number(process.env.PORT || 3000)
@@ -53,11 +52,11 @@ server.use((req, res, next) => { // custom authorization here
         next() // continue to JSON Server router
     } else if(req.method == "PATCH" && req.body.like) {
 
-        huntingObj = db.get('huntings')
+        huntingObj = dbAsync.get('huntings')
             .find({ id: req.body.like });
 
         if(huntingObj) {
-            db.get('huntings')
+            dbAsync.get('huntings')
                 .find({ id: req.body.like })
                 .assign({likes: {number: huntingObj.get('likes.number') + 1}})
                 .write();
