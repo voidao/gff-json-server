@@ -10,6 +10,8 @@ const port = Number(process.env.PORT || 3000)
 const user = process.env.USER || "";
 const pass = process.env.PASS || "";
 
+console.log("Auth: " + user + ":" + pass);
+
 var huntingObj;
 var fs = require('fs'),
     http = require('http'),
@@ -25,13 +27,21 @@ server.use(bodyParser.json());
 
 function isAuthorized(req) {
 
+    var result = false;
+
     var credentials = auth(req);
 
     if(credentials && credentials.name == user && credentials.pass == pass) {
-        return true;
+        result = true;
     } else {
-        return false;
+        result = false;
     }
+
+    console.log("user: " + user + "| pass: " + pass);
+
+    console.log("Authorized: " + result);
+
+    return result;
 }
 
 const low = require('lowdb');
