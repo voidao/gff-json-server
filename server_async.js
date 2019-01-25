@@ -10,8 +10,6 @@ const port = Number(process.env.PORT || 3000)
 const user = process.env.GFF_USER || "";
 const pass = process.env.GFF_PASS || "";
 
-console.log("Auth: " + user + ":" + pass);
-
 var huntingObj;
 var fs = require('fs'),
     http = require('http'),
@@ -36,10 +34,6 @@ function isAuthorized(req) {
     } else {
         result = false;
     }
-
-    console.log("user: " + user + "| pass: " + pass);
-
-    console.log("Authorized: " + result);
 
     return result;
 }
