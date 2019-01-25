@@ -35,8 +35,8 @@ const low = require('lowdb');
 const FileAsync = require('lowdb/adapters/FileAsync');
 
 // Create database instance and start server
-//const adapter = new FileAsync('/var/local/db.json');
-const adapter = new FileAsync('db.json');
+const adapter = new FileAsync('/var/local/db.json');
+//const adapter = new FileAsync('db.json');
 
 low(adapter)
     .then(db => {
