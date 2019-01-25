@@ -7,6 +7,9 @@ const server = jsonServer.create()
 const middlewares = jsonServer.defaults()
 const port = Number(process.env.PORT || 3000)
 
+const user = process.env.USER || "";
+const pass = process.env.PASS || "";
+
 var huntingObj;
 var fs = require('fs'),
     http = require('http'),
@@ -24,7 +27,7 @@ function isAuthorized(req) {
 
     var credentials = auth(req);
 
-    if(credentials && credentials.name == "gff" && credentials.pass == process.argv[2]) {
+    if(credentials && credentials.name == user && credentials.pass == pass) {
         return true;
     } else {
         return false;
