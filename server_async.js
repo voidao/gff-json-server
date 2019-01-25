@@ -7,8 +7,8 @@ const server = jsonServer.create()
 const middlewares = jsonServer.defaults()
 const port = Number(process.env.PORT || 3000)
 
-const user = process.env.USER || "";
-const pass = process.env.PASS || "";
+const user = process.env.GFF_USER || "";
+const pass = process.env.GFF_PASS || "";
 
 console.log("Auth: " + user + ":" + pass);
 
