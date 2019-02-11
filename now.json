@@ -1,0 +1,10 @@
+{
+  "name": "gff-jsonserver-now",
+  "version": 2,
+  "builds": [
+    { "src": "now/index.js", "use": "@now/node-server" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "now/index.js" }
+  ]
+}

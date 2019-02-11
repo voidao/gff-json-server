@@ -8,7 +8,7 @@
       "img": "https://cdn.jsdelivr.net/gh/HenryFMa/gff/img/MDB_Freebies.png",
       "video": "https://www.youtube.com/embed/cXTThxoywNQ",
       "likes": {
-        "number": 1
+        "number": 3
       }
     },
     {
@@ -41,7 +41,7 @@
       "img": "https://cdn.jsdelivr.net/gh/HenryFMa/shared/assets/images/jsDelivrCDN.png",
       "video": "https://www.youtube.com/embed/A3PDXmYoF5U",
       "likes": {
-        "number": 0
+        "number": 1
       }
     },
     {
@@ -52,7 +52,7 @@
       "img": "https://cdn.jsdelivr.net/gh/HenryFMa/shared/assets/images/wikimedia.png",
       "video": "https://www.youtube.com/embed/eAORm-8b1Eg",
       "likes": {
-        "number": 0
+        "number": 1
       }
     },
     {
@@ -74,7 +74,7 @@
       "img": "https://cdn.jsdelivr.net/gh/HenryFMa/gff/img/photos/people/img(117).jpg",
       "video": "https://www.youtube.com/embed/A3PDXmYoF5U",
       "likes": {
-        "number": 0
+        "number": 1
       }
     },
     {
@@ -96,7 +96,18 @@
       "img": "https://cdn.jsdelivr.net/gh/HenryFMa/gff/img/photos/slides/img%20(137).jpg",
       "video": "https://www.youtube.com/embed/A3PDXmYoF5U",
       "likes": {
-        "number": 0
+        "number": 1
+      }
+    },
+    {
+      "id": 10,
+      "category": "gallery_cn",
+      "title": "IPFS",
+      "hyperlink": "https://mhf.edening.net/2019/01/25/IPFS.html",
+      "img": "https://cdn.jsdelivr.net/gh/HenryFMa/gff/img/MDB_Freebies.png",
+      "video": "https://www.youtube.com/embed/cXTThxoywNQ",
+      "likes": {
+        "number": 1
       }
     }
   ]
